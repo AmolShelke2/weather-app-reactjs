@@ -30,9 +30,16 @@ const APIkey = `92e5fe71edba4a5e83a4adceb8e724df`;
 
 const App = () => {
   const [data, setData] = useState(null);
-  const [location, setLocation] = useState("India");
+  const [location, setLocation] = useState("Mumbai");
 
   // Fetch the weather data
+
+  useEffect(() => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?&q=${location}&appid=${APIkey}`;
+    axios.get(url).then((res) => {
+      setData(res.data);
+    });
+  }, [location]);
 
   return (
     <div className="App">
