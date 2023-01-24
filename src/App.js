@@ -41,6 +41,8 @@ const App = () => {
     });
   }, [location]);
 
+  // Show loader if data is wrong
+
   return (
     <div className="App">
       <p>Creating Weather App</p>
