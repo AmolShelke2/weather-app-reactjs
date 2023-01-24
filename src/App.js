@@ -42,6 +42,19 @@ const App = () => {
   }, [location]);
 
   // Show loader if data is wrong
+  if (!data) {
+    return (
+      <div>
+        <div>
+          <ImSpinner8 className="text-5x1 animate-spin" />
+        </div>
+      </div>
+    );
+  }
+
+  // set the icon according to the weather
+  let icon;
+  console.log(data.weather[0].main);
 
   return (
     <div className="App">
