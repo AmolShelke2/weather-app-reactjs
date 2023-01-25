@@ -30,7 +30,7 @@ const APIkey = `92e5fe71edba4a5e83a4adceb8e724df`;
 
 const App = () => {
   const [data, setData] = useState(null);
-  const [location, setLocation] = useState("Mumbai");
+  const [location, setLocation] = useState("Nagpur");
 
   // Fetch the weather data
 
@@ -54,14 +54,32 @@ const App = () => {
 
   // set the icon according to the weather
   let icon;
+
   switch (data.weather[0].main) {
+    case "Clouds":
+      icon = <IoMdCloudy />;
+      break;
+    case "Haze":
+      icon = <BsCloudHaze2Fill />;
+      break;
+    case "Rain":
+      icon = <IoMdRainy />;
+      break;
+    case "Clear":
+      icon = <IoMdSunny />;
+      break;
+    case "Drizzle":
+      icon = <BsCloudDrizzleFill />;
+      break;
+    case "Snow":
+      icon = <IoMdSnow />;
+      break;
+    case "Thunderstorm":
+      icon = <IoMdThunderstorm />;
+      break;
   }
 
-  return (
-    <div className="App">
-      <p>Creating Weather App</p>
-    </div>
-  );
+  return <div className="text-6x1 app">{icon}</div>;
 };
 
 export default App;
