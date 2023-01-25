@@ -54,7 +54,8 @@ const App = () => {
 
   // set the icon according to the weather
   let icon;
-  console.log(data.weather[0].main);
+  switch (data.weather[0].main) {
+  }
 
   return (
     <div className="App">
