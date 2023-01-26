@@ -79,7 +79,31 @@ const App = () => {
       break;
   }
 
-  return <div className="text-6x1 app">{icon}</div>;
+  return (
+    <div
+      className="w-full h-screen bg-gradientBg bg-no-repeat bg-cover 
+    bg-center flex flex-col items-center justify-center px-4 lg:px-0">
+      {/* form */}
+      <form>form</form>
+      {/* card */}
+      <div
+        className="w-full  max-w-[450px] bg-black/20 min-h-[584px]
+       text-white backdrop-blur-[32px] py-12 px-6 rounded-[15px]">
+        <div>
+          {/* card top */}
+          <div>
+            {/* icon */}
+            <div className="text-[87px]">{icon}</div>
+          </div>
+
+          {/* card body */}
+          <div>Card body</div>
+          {/* card  bottom*/}
+          <div>card bottom</div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default App;
