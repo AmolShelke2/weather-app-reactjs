@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 // import axios
-import axios from "axios";
+import axios from 'axios';
 
 // import icons
 import {
@@ -11,7 +11,7 @@ import {
   IoMdSnow,
   IoMdThunderstorm,
   IoMdSearch,
-} from "react-icons/io";
+} from 'react-icons/io';
 
 import {
   BsCloudHaze2Fill,
@@ -20,23 +20,23 @@ import {
   BsWater,
   BsThermometer,
   BsWind,
-} from "react-icons/bs";
+} from 'react-icons/bs';
 
-import { TbTemperatureCelsius } from "react-icons/tb";
-import { ImSpinner8 } from "react-icons/im";
+import { TbTemperatureCelsius } from 'react-icons/tb';
+import { ImSpinner8 } from 'react-icons/im';
 
 // API key
 const APIkey = `92e5fe71edba4a5e83a4adceb8e724df`;
 
 const App = () => {
   const [data, setData] = useState(null);
-  const [location, setLocation] = useState("Nagpur");
+  const [location, setLocation] = useState('Nagpur');
 
   // Fetch the weather data
 
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?&q=${location}&appid=${APIkey}`;
-    axios.get(url).then((res) => {
+    axios.get(url).then(res => {
       setData(res.data);
     });
   }, [location]);
@@ -56,25 +56,25 @@ const App = () => {
   let icon;
 
   switch (data.weather[0].main) {
-    case "Clouds":
+    case 'Clouds':
       icon = <IoMdCloudy />;
       break;
-    case "Haze":
+    case 'Haze':
       icon = <BsCloudHaze2Fill />;
       break;
-    case "Rain":
+    case 'Rain':
       icon = <IoMdRainy />;
       break;
-    case "Clear":
+    case 'Clear':
       icon = <IoMdSunny />;
       break;
-    case "Drizzle":
+    case 'Drizzle':
       icon = <BsCloudDrizzleFill />;
       break;
-    case "Snow":
+    case 'Snow':
       icon = <IoMdSnow />;
       break;
-    case "Thunderstorm":
+    case 'Thunderstorm':
       icon = <IoMdThunderstorm />;
       break;
   }
@@ -85,16 +85,18 @@ const App = () => {
   return (
     <div
       className="w-full h-screen bg-gradientBg bg-no-repeat bg-cover 
-    bg-center flex flex-col items-center justify-center px-4 lg:px-0">
+    bg-center flex flex-col items-center justify-center px-4 lg:px-0"
+    >
       {/* form */}
       <form>form</form>
       {/* card */}
       <div
         className="w-full  max-w-[450px] bg-black/20 min-h-[584px]
-       text-white backdrop-blur-[32px] py-12 px-6 rounded-[15px]">
+       text-white backdrop-blur-[32px] py-12 px-6 rounded-[15px]"
+      >
         <div>
           {/* card top */}
-          <div>
+          <div className="bg-pink-100/30 flex items-center gap-x-5">
             {/* icon */}
             <div className="text-[87px]">{icon}</div>
             <div>
@@ -104,13 +106,18 @@ const App = () => {
               </div>
               {/* date */}
               <div>
-                {date.getUTCDate()}/{date.getUTCMonth() + 1} /{" "}
+                {date.getUTCDate()}/{date.getUTCMonth() + 1}/
                 {date.getUTCFullYear()}
               </div>
             </div>
           </div>
           {/* card body */}
-          <div>Card body</div>
+          <div className="my-20">
+            <div>
+              {/* temp */}
+              <div>{parseInt(data.main.temp)}</div>
+            </div>
+          </div>
           {/* card  bottom*/}
           <div>card bottom</div>
         </div>
