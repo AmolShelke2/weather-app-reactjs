@@ -35,7 +35,7 @@ const App = () => {
   // Fetch the weather data
 
   useEffect(() => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?&q=${location}&appid=${APIkey}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?&q=${location}&units=metric&appid=${APIkey}`;
     axios.get(url).then(res => {
       setData(res.data);
     });
@@ -92,11 +92,11 @@ const App = () => {
       {/* card */}
       <div
         className="w-full  max-w-[450px] bg-black/20 min-h-[584px]
-       text-white backdrop-blur-[32px] py-12 px-6 rounded-[15px]"
+       text-white backdrop-blur-[32px] py-12 px-6 rounded-[20px]"
       >
         <div>
           {/* card top */}
-          <div className="bg-pink-100/30 flex items-center gap-x-5">
+          <div className="flex items-center gap-x-5">
             {/* icon */}
             <div className="text-[87px]">{icon}</div>
             <div>
@@ -113,13 +113,74 @@ const App = () => {
           </div>
           {/* card body */}
           <div className="my-20">
-            <div>
+            <div className="flex justify-center items-center">
               {/* temp */}
-              <div>{parseInt(data.main.temp)}</div>
+              <div className="text-[144px] leading-none font-normal">
+                {parseInt(data.main.temp)}
+              </div>
+              {/* celcius icon*/}
+              <div className="text-[40px]">
+                <TbTemperatureCelsius />
+              </div>
+            </div>
+            {/* weather description */}
+            <div className="capitalize text-center">
+              {data.weather[0].description}
             </div>
           </div>
           {/* card  bottom*/}
-          <div>card bottom</div>
+          <div className="max-w-[378px] mx-auto flex flex-col gap-y-6">
+            <div className="flex justify-between">
+              <div className="flex items-center gap-x-2">
+                {/* icon */}
+                <div className="text-[20px]">
+                  <BsEye />
+                </div>
+                <div>
+                  Visibility{' '}
+                  <span className="ml-2">{data.visibility / 1000} km</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-x-2">
+                {/* icon */}
+                <div className="text-[20px]">
+                  <BsThermometer />
+                </div>
+                <div className="flex">
+                  Feels like{' '}
+                  <div className="flex ml-2">
+                    {parseInt(data.main.feels_like)}
+                    <TbTemperatureCelsius />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <div className="flex items-center gap-x-2">
+                {/* icon */}
+                <div className="text-[20px]">
+                  <BsEye />
+                </div>
+                <div>
+                  Visibility{' '}
+                  <span className="ml-2">{data.visibility / 1000} km</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-x-2">
+                {/* icon */}
+                <div className="text-[20px]">
+                  <BsThermometer />
+                </div>
+                <div className="flex">
+                  Feels like{' '}
+                  <div className="flex ml-2">
+                    {parseInt(data.main.feels_like)}
+                    <TbTemperatureCelsius />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
