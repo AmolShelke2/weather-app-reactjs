@@ -88,9 +88,17 @@ const App = () => {
     bg-center flex flex-col items-center justify-center px-4 lg:px-0"
     >
       {/* form */}
-      <form className="h-16">
-        <div>
-          <input type="text" placeholder="search by city or country" />
+      <form
+        className="h-16 bg-black/30 w-full max-w-[450px] rounded-full
+       backdrop-blur-[32px] mb-8"
+      >
+        <div className="h-full relative flex items-center justify-between p-2">
+          <input
+            type="text"
+            placeholder="search by city or country"
+            className="flex-1 bg-transparent outline-none placeholder:text-white placeholder:capitalize
+              text-white text-[15px] p-6 h-full font-light"
+          />
           <button>
             <IoMdSearch />
           </button>
