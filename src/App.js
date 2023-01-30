@@ -88,7 +88,11 @@ const App = () => {
     bg-center flex flex-col items-center justify-center px-4 lg:px-0"
     >
       {/* form */}
-      <form>form</form>
+      <form>
+        <div>
+          <input type="text" placeholder="search by city or country" />
+        </div>
+      </form>
       {/* card */}
       <div
         className="w-full  max-w-[450px] bg-black/20 min-h-[584px]
