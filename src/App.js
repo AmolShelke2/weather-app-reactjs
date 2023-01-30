@@ -88,9 +88,12 @@ const App = () => {
     bg-center flex flex-col items-center justify-center px-4 lg:px-0"
     >
       {/* form */}
-      <form>
+      <form className="h-16">
         <div>
           <input type="text" placeholder="search by city or country" />
+          <button>
+            <IoMdSearch />
+          </button>
         </div>
       </form>
       {/* card */}
