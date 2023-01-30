@@ -159,24 +159,20 @@ const App = () => {
               <div className="flex items-center gap-x-2">
                 {/* icon */}
                 <div className="text-[20px]">
-                  <BsEye />
+                  <BsWater />
                 </div>
                 <div>
-                  Visibility{' '}
-                  <span className="ml-2">{data.visibility / 1000} km</span>
+                  Humidity
+                  <span className="ml-2">{data.main.humidity}</span>
                 </div>
               </div>
               <div className="flex items-center gap-x-2">
                 {/* icon */}
                 <div className="text-[20px]">
-                  <BsThermometer />
+                  <BsWind />
                 </div>
-                <div className="flex">
-                  Feels like{' '}
-                  <div className="flex ml-2">
-                    {parseInt(data.main.feels_like)}
-                    <TbTemperatureCelsius />
-                  </div>
+                <div className="ml-2">
+                  Wind <span>{data.wind.speed} m/s</span>
                 </div>
               </div>
             </div>
