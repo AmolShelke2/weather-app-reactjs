@@ -188,5 +188,3 @@ const App = () => {
 };
 
 export default App;
-
-// styling card component
