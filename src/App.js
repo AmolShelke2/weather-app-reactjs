@@ -81,6 +81,7 @@ const App = () => {
 
   // date object
   const date = new Date();
+  console.log(data);
 
   return (
     <div
