@@ -99,7 +99,7 @@ const App = () => {
             className="flex-1 bg-transparent outline-none placeholder:text-white placeholder:capitalize
               text-white text-[15px] p-6 h-full font-light"
           />
-          <button>
+          <button className="">
             <IoMdSearch />
           </button>
         </div>
