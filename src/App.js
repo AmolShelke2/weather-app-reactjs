@@ -69,9 +69,19 @@ const App = () => {
 
   // Fetch the weather data
   useEffect(() => {
+    // set loading to true
+    setLoading(true);
+
     const url = `https://api.openweathermap.org/data/2.5/weather?&q=${location}&units=metric&appid=${APIkey}`;
+
     axios.get(url).then(res => {
-      setData(res.data);
+      // set the data after 1500 ms
+      setTimeout(() => {
+        setData(res.data);
+
+        // set loading to false
+        setLoading(true);
+      }, 1500);
     });
   }, [location]);
 
@@ -151,90 +161,96 @@ const App = () => {
         className="w-full  max-w-[450px] bg-black/20 min-h-[584px]
        text-white backdrop-blur-[32px] py-12 px-6 rounded-[20px]"
       >
-        <div>
-          {/* card top */}
-          <div className="flex items-center gap-x-5">
-            {/* icon */}
-            <div className="text-[87px]">{icon}</div>
-            <div>
-              {/* country name */}
-              <div className="text-2x1 font-semibold">
-                {data.name}, {data.sys.country}
-              </div>
-              {/* date */}
+        {loading ? (
+          <div className="w-full h-full flex justify-center items-center">
+            loading
+          </div>
+        ) : (
+          <div>
+            {/* card top */}
+            <div className="flex items-center gap-x-5">
+              {/* icon */}
+              <div className="text-[87px]">{icon}</div>
               <div>
-                {date.getUTCDate()}/{date.getUTCMonth() + 1}/
-                {date.getUTCFullYear()}
-              </div>
-            </div>
-          </div>
-          {/* card body */}
-          <div className="my-20">
-            <div className="flex justify-center items-center">
-              {/* temp */}
-              <div className="text-[144px] leading-none font-normal">
-                {parseInt(data.main.temp)}
-              </div>
-              {/* celcius icon*/}
-              <div className="text-[40px]">
-                <TbTemperatureCelsius />
-              </div>
-            </div>
-            {/* weather description */}
-            <div className="capitalize text-center">
-              {data.weather[0].description}
-            </div>
-          </div>
-          {/* card  bottom*/}
-          <div className="max-w-[378px] mx-auto flex flex-col gap-y-6">
-            <div className="flex justify-between">
-              <div className="flex items-center gap-x-2">
-                {/* icon */}
-                <div className="text-[20px]">
-                  <BsEye />
+                {/* country name */}
+                <div className="text-2x1 font-semibold">
+                  {data.name}, {data.sys.country}
                 </div>
+                {/* date */}
                 <div>
-                  Visibility{' '}
-                  <span className="ml-2">{data.visibility / 1000} km</span>
+                  {date.getUTCDate()}/{date.getUTCMonth() + 1}/
+                  {date.getUTCFullYear()}
                 </div>
               </div>
-              <div className="flex items-center gap-x-2">
-                {/* icon */}
-                <div className="text-[20px]">
-                  <BsThermometer />
+            </div>
+            {/* card body */}
+            <div className="my-20">
+              <div className="flex justify-center items-center">
+                {/* temp */}
+                <div className="text-[144px] leading-none font-normal">
+                  {parseInt(data.main.temp)}
                 </div>
-                <div className="flex">
-                  Feels like{' '}
-                  <div className="flex ml-2">
-                    {parseInt(data.main.feels_like)}
-                    <TbTemperatureCelsius />
+                {/* celcius icon*/}
+                <div className="text-[40px]">
+                  <TbTemperatureCelsius />
+                </div>
+              </div>
+              {/* weather description */}
+              <div className="capitalize text-center">
+                {data.weather[0].description}
+              </div>
+            </div>
+            {/* card  bottom*/}
+            <div className="max-w-[378px] mx-auto flex flex-col gap-y-6">
+              <div className="flex justify-between">
+                <div className="flex items-center gap-x-2">
+                  {/* icon */}
+                  <div className="text-[20px]">
+                    <BsEye />
+                  </div>
+                  <div>
+                    Visibility{' '}
+                    <span className="ml-2">{data.visibility / 1000} km</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-x-2">
+                  {/* icon */}
+                  <div className="text-[20px]">
+                    <BsThermometer />
+                  </div>
+                  <div className="flex">
+                    Feels like{' '}
+                    <div className="flex ml-2">
+                      {parseInt(data.main.feels_like)}
+                      <TbTemperatureCelsius />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-between">
+                <div className="flex items-center gap-x-2">
+                  {/* icon */}
+                  <div className="text-[20px]">
+                    <BsWater />
+                  </div>
+                  <div>
+                    Humidity
+                    <span className="ml-2">{data.main.humidity}</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-x-2">
+                  {/* icon */}
+                  <div className="text-[20px]">
+                    <BsWind />
+                  </div>
+                  <div className="ml-2">
+                    Wind <span>{data.wind.speed} m/s</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-between">
-              <div className="flex items-center gap-x-2">
-                {/* icon */}
-                <div className="text-[20px]">
-                  <BsWater />
-                </div>
-                <div>
-                  Humidity
-                  <span className="ml-2">{data.main.humidity}</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-x-2">
-                {/* icon */}
-                <div className="text-[20px]">
-                  <BsWind />
-                </div>
-                <div className="ml-2">
-                  Wind <span>{data.wind.speed} m/s</span>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
