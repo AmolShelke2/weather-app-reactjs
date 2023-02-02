@@ -100,8 +100,11 @@ const App = () => {
             className="flex-1 bg-transparent outline-none placeholder:text-white placeholder:capitalize
               text-white text-[15px] p-6 h-full font-light"
           />
-          <button className="p-5 flex justify-center items-center text-[30px] outline-none">
-            <IoMdSearch />
+          <button
+            className="bg-[#1ab8ed] hover:bg-[#15bbdd] w-20 h-12 rounded-full flex justify-center
+           items-center transition"
+          >
+            <IoMdSearch className="text-2x1 text-white" />
           </button>
         </div>
       </form>
