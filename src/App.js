@@ -33,6 +33,9 @@ const App = () => {
   const [location, setLocation] = useState('Nagpur');
   const [weatherInput, setWeatherInput] = useState('');
 
+  const weatherInputHandler = e => {
+    setWeatherInput(e.target.value);
+  };
   // Fetch the weather data
 
   useEffect(() => {
@@ -82,7 +85,6 @@ const App = () => {
 
   // date object
   const date = new Date();
-  console.log(data);
 
   return (
     <div
@@ -97,6 +99,7 @@ const App = () => {
         <div className="h-full relative flex items-center justify-between p-2">
           <input
             type="text"
+            onChange={weatherInputHandler}
             placeholder="search by city or country"
             className="flex-1 bg-transparent outline-none placeholder:text-white placeholder:capitalize
               text-white text-[15px] p-6 h-full font-light"
