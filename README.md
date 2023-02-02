@@ -1,6 +1,25 @@
 # React Weather App
 
-Weather Appc created with REACTJS, HTML and CSS.
+Weather App created with REACTJS, HTML and Tailwind CSS.
+
+## Tech used
+
+- HTML
+- Tailwind CSS
+- ReactJS
+- Web APIs
+- Fetch Data.
+
+## Features
+
+- Search Weather for a specific country with the search feature.
+- Shows error if the city is not valid.
+- Has loader so you understand the fetching of data is going on.
+- Created using Tailwind CSS.
+
+## Live Preview
+
+## Preview
 
 ## Getting Started with Create React App
 
