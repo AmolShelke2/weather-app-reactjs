@@ -75,22 +75,43 @@ const App = () => {
 
     const url = `https://api.openweathermap.org/data/2.5/weather?&q=${location}&units=metric&appid=${APIkey}`;
 
-    axios.get(url).then(res => {
-      // set the data after 1500 ms
-      setTimeout(() => {
-        setData(res.data);
+    axios
+      .get(url)
+      .then(res => {
+        // set the data after 1500 ms
+        setTimeout(() => {
+          setData(res.data);
 
-        // set loading to false
+          // set loading to false
+          setLoading(false);
+        }, 1500);
+      })
+      .catch(err => {
         setLoading(false);
-      }, 1500);
-    });
+        setErrorMsg(err);
+      });
   }, [location]);
+
+  // error message
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setErrorMsg('');
+    }, 2000);
+
+    // clear timer
+    return () => clearTimeout(timer);
+  }, [errorMsg]);
 
   // Show loader if data is wrong
   if (!data) {
     return (
       <div>
-        <div></div>
+        <div
+          className="w-full h-screen flex flex-col justify-center items-center 
+          bg-gradientBg bg-no-repeat bg-cover bg-center"
+        >
+          <ImSpinner8 className="text-white text-5xl animate-spin" />
+        </div>
       </div>
     );
   }
@@ -106,16 +127,16 @@ const App = () => {
       icon = <BsCloudHaze2Fill />;
       break;
     case 'Rain':
-      icon = <IoMdRainy />;
+      icon = <IoMdRainy className="text-[#31cafb]" />;
       break;
     case 'Clear':
-      icon = <IoMdSunny />;
+      icon = <IoMdSunny className="text-[#ffde33]" />;
       break;
     case 'Drizzle':
-      icon = <BsCloudDrizzleFill />;
+      icon = <BsCloudDrizzleFill className="text-[#31cafb]" />;
       break;
     case 'Snow':
-      icon = <IoMdSnow />;
+      icon = <IoMdSnow className="text-[#31cafb]" />;
       break;
     case 'Thunderstorm':
       icon = <IoMdThunderstorm />;
@@ -130,6 +151,12 @@ const App = () => {
       className="w-full h-screen bg-gradientBg bg-no-repeat bg-cover 
     bg-center flex flex-col items-center justify-center px-4 lg:px-0"
     >
+      {errorMsg && (
+        <div
+          className="w-full max-w-[90vw] lg:max-w-[450px] bg-[#ff208c]
+         text-white absolute top-2 lg:top-10 p-4 capitalize rounded-md"
+        >{`${errorMsg.response.data.message}`}</div>
+      )}
       {/* form */}
       <form
         onSubmit={weatherSubmitHandler}
