@@ -42,6 +42,15 @@ const App = () => {
   const weatherSubmitHandler = e => {
     console.log(weatherInput);
 
+    // if input is valid
+    if (weatherInput !== '') {
+      setLocation(weatherInput);
+    }
+
+    // Select input
+    const input = document.querySelector('input');
+    input.value = '';
+
     // prevent default
     e.preventDefault();
   };
