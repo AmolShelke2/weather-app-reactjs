@@ -80,7 +80,7 @@ const App = () => {
         setData(res.data);
 
         // set loading to false
-        setLoading(true);
+        setLoading(false);
       }, 1500);
     });
   }, [location]);
@@ -89,9 +89,7 @@ const App = () => {
   if (!data) {
     return (
       <div>
-        <div>
-          <ImSpinner8 className="text-5x1 animate-spin" />
-        </div>
+        <div></div>
       </div>
     );
   }
@@ -163,7 +161,7 @@ const App = () => {
       >
         {loading ? (
           <div className="w-full h-full flex justify-center items-center">
-            loading
+            <ImSpinner8 className="text-white text-5xl animate-spin" />
           </div>
         ) : (
           <div>
