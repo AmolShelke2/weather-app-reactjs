@@ -33,11 +33,20 @@ const App = () => {
   const [location, setLocation] = useState('Nagpur');
   const [weatherInput, setWeatherInput] = useState('');
 
+  // weather input handler
   const weatherInputHandler = e => {
     setWeatherInput(e.target.value);
   };
-  // Fetch the weather data
 
+  // Weather input submission
+  const weatherSubmitHandler = e => {
+    console.log(weatherInput);
+
+    // prevent default
+    e.preventDefault();
+  };
+
+  // Fetch the weather data
   useEffect(() => {
     const url = `https://api.openweathermap.org/data/2.5/weather?&q=${location}&units=metric&appid=${APIkey}`;
     axios.get(url).then(res => {
@@ -93,6 +102,7 @@ const App = () => {
     >
       {/* form */}
       <form
+        onSubmit={weatherSubmitHandler}
         className="h-16 bg-black/30 w-full max-w-[450px] rounded-full
        backdrop-blur-[32px] mb-8"
       >
@@ -105,6 +115,7 @@ const App = () => {
               text-white text-[15px] p-6 h-full font-light"
           />
           <button
+            onSubmit={weatherSubmitHandler}
             className="bg-[#1ab8ed] hover:bg-[#15bbdd] w-20 h-12 rounded-full flex justify-center
            items-center transition"
           >
