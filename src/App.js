@@ -32,6 +32,7 @@ const App = () => {
   const [data, setData] = useState(null);
   const [location, setLocation] = useState('Nagpur');
   const [weatherInput, setWeatherInput] = useState('');
+  const [animate, setAnimate] = useState(false);
 
   // weather input handler
   const weatherInputHandler = e => {
@@ -40,8 +41,6 @@ const App = () => {
 
   // Weather input submission
   const weatherSubmitHandler = e => {
-    console.log(weatherInput);
-
     // if input is valid
     if (weatherInput !== '') {
       setLocation(weatherInput);
@@ -49,7 +48,19 @@ const App = () => {
 
     // Select input
     const input = document.querySelector('input');
+
+    // clear input
     input.value = '';
+
+    // if weather input value is empty
+    if (input.value === '') {
+      setAnimate(true);
+
+      // set animate to false after 500 ms
+      setTimeout(() => {
+        setAnimate(false);
+      }, 500);
+    }
 
     // prevent default
     e.preventDefault();
@@ -112,8 +123,10 @@ const App = () => {
       {/* form */}
       <form
         onSubmit={weatherSubmitHandler}
-        className="h-16 bg-black/30 w-full max-w-[450px] rounded-full
-       backdrop-blur-[32px] mb-8"
+        className={`${
+          animate ? 'animate-shake' : 'animate-none'
+        } h-16 bg-black/30 w-full max-w-[450px] rounded-full
+       backdrop-blur-[32px] mb-8`}
       >
         <div className="h-full relative flex items-center justify-between p-2">
           <input
