@@ -33,6 +33,7 @@ const App = () => {
   const [location, setLocation] = useState('Nagpur');
   const [weatherInput, setWeatherInput] = useState('');
   const [animate, setAnimate] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // weather input handler
   const weatherInputHandler = e => {
