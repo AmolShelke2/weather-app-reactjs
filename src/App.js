@@ -34,6 +34,7 @@ const App = () => {
   const [weatherInput, setWeatherInput] = useState('');
   const [animate, setAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   // weather input handler
   const weatherInputHandler = e => {
