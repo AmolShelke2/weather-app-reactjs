@@ -19,7 +19,7 @@ Weather App created with REACTJS, HTML and Tailwind CSS.
 
 ## Live Preview
 
-## Preview
+## Screenshot
 
 ## Getting Started with Create React App
 
