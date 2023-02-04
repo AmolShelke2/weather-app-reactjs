@@ -23,7 +23,13 @@ Weather App created with REACTJS, HTML and Tailwind CSS.
 
 ## Screenshot
 
+### Desktop
+
 ![localhost_3000_](https://user-images.githubusercontent.com/95171638/216674188-7ba5590c-d0d9-463d-b778-1612c8691f4f.png)
+
+### Phone
+
+![weather-app-reactjs-eta vercel app_(Pixel 5)](https://user-images.githubusercontent.com/95171638/216777107-28214aaf-6d5a-458f-92c6-3494c2261bd2.png)
 
 <hr/>
 
