@@ -14,7 +14,7 @@ Weather App created with REACTJS, HTML and Tailwind CSS.
 
 - Search Weather for a specific country with the search feature.
 - Shows error if the city is not valid.
-- Has loader so you understand the fetching of data is going on.
+- Has loader so you can understand the fetching of data is going on.
 - Created using Tailwind CSS.
 
 ## Live Preview
@@ -26,10 +26,6 @@ Weather App created with REACTJS, HTML and Tailwind CSS.
 ### Desktop
 
 ![localhost_3000_](https://user-images.githubusercontent.com/95171638/216674188-7ba5590c-d0d9-463d-b778-1612c8691f4f.png)
-
-### Phone
-
-![weather-app-reactjs-eta vercel app_(Pixel 5)](https://user-images.githubusercontent.com/95171638/216777107-28214aaf-6d5a-458f-92c6-3494c2261bd2.png)
 
 <hr/>
 
