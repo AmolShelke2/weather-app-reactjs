@@ -1,6 +1,6 @@
 # React Weather App
 
-Weather App created with REACTJS, HTML and Tailwind CSS.
+Weather App created with React.JS and Tailwind CSS.
 
 ## Tech used
 
