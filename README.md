@@ -10,11 +10,12 @@ Weather App created with React.JS and Tailwind CSS.
 - Web APIs
 - Fetch Data.
 
+
 ## Features
 
 - Search Weather for a specific country with the search feature.
 - Shows error if the city is not valid.
-- Has loader so you can understand the fetching of data is going on.
+- Has a loader so you can understand the fetching of data is going on.
 - Created using Tailwind CSS.
 
 ## Live Preview
