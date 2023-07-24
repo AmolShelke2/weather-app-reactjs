@@ -17,6 +17,7 @@ Weather App created with React.JS and Tailwind CSS.
 - Shows error if the city is not valid.
 - Has a loader so you can understand the fetching of data is going on.
 - Created using Tailwind CSS.
+  
 
 ## Live Preview
 
